@@ -1,0 +1,62 @@
+
+$primary: #2196F3 // Accent Color
+$secondary: #A0B0B9 // Accent Color
+$hover-color: #F1FCFF
+$black: #4A4A4A
+$white: #FFFFFF
+$border-radius: 5px
+$box-shadow: 0 2px 8px rgba(0, 0, 0, .1)
+$fontsize: 12px // Body Font Size
+$textcolor: $black // Text Color
+$lineheight: 1.57 // Document Line Height
+$userfont: open-sans, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 10px
+$gutter: $grid-gutter-width
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('open-sans', normal, 400, '/assets/fonts/OpenSans-Regular.ttf')
+@include font('open-sans', normal, 600, '/assets/fonts/OpenSans-SemiBold.ttf')
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: $black
+
+::selection
+	background-color: $primary
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	background: #F3F7FA
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+	margin: 0
+
+.logo
+	height: 160px
+	display: flex
+	justify-content: center
+	align-items: center

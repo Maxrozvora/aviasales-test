@@ -1,0 +1,51 @@
+.btn
+    font-size: 12px
+    padding: 17px
+    font-weight: semi-bold
+    display: inline-block
+    text-align: center
+    text-decoration: none
+    vertical-align: middle
+    text-transform: uppercase
+    background: $white
+    border: 1px solid #DFE5EC
+    font-weight: 600
+    border-radius: 5px
+    cursor: pointer
+    transition: background .15s ease-in-out, color .15s ease-in-out
+    &:hover
+        background: $primary
+        color: $white
+    &:active
+        background: darken($primary, 20)
+        outline: none
+    &:focus
+        outline: none
+    &_primary
+        background: $primary
+        color: $white
+        &:hover
+            background: darken($primary, 10)
+        &:active
+            background: darken($primary, 20)
+    &_block
+        display: block
+        width: 100%
+
+.btn-group
+    display: flex
+    justify-content: space-between
+    .btn
+        width: 100%
+        &:not(:last-child)
+            border-top-right-radius: 0
+            border-bottom-right-radius: 0
+
+.btn-group:not(:first-child)>.btn, .btn-group>.btn:nth-child(n+3), .btn-group>:not(.btn-check)+.btn
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+    margin-left: -1px
+
+// .btn-group>.btn
+//     position: relative
+//     flex: 1 1 auto

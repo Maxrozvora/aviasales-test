@@ -1,0 +1,25 @@
+.checkbox
+    &__item
+        display: flex
+        align-items: center
+        height: 40px
+        padding-left: 20px
+        cursor: pointer
+        font-size: 13px
+        &:hover
+            background-color: $hover-color
+    &__label
+        cursor: pointer
+    &__checkbox-item
+        display: none
+    &__checkbox-input
+        width: 20px
+        height: 20px
+        border: 1px solid #9ABBCE
+        border-radius: 2px
+        margin-right: 10px
+        &_checked
+            border: 1px solid $primary
+            background-image: url("./assets/img/check.svg")
+            background-position: center center
+            background-repeat: no-repeat

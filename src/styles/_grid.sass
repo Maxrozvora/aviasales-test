@@ -1,0 +1,37 @@
+.container
+    width: 100%
+    padding-right: $gutter
+    padding-left: $gutter
+    margin-right: auto
+    margin-left: auto
+
+.row
+    display: flex
+    justify-content: center
+
+.left-block, .right-block
+    position: relative
+    width: 100%
+    padding-right: $gutter
+    padding-left: $gutter
+
+.left-block
+    max-width: 232px
+    .card
+        padding-bottom: 10px
+
+.right-block
+    max-width: 502px
+
+.col
+    width: calc(100% / 3)
+
+.my
+    margin: 20px 0
+
+.mb-10
+    margin-bottom: 10px
+
+@media (min-width: 1200px)
+    .container
+        max-width: 1140px
