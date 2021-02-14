@@ -1,15 +1,12 @@
 <template>
   <div class="card">
     <div class="card__title">Количество пересадок</div>
+    <CheckBox @toggleCheckbox="toggleAllCheckbox" :checkbox="allCheckbox" />
     <CheckBox
-      @toggleCheckbox="toggleAllCheckbox(checkbox)"
-      :checkbox="allCheckbox"
-    />
-    <CheckBox
-      v-for="checkbox in checkboxes"
-      @toggleCheckbox="toggleCheckbox(checkbox)"
-      :key="checkbox.id"
-      :checkbox="checkbox"
+      v-for="item in checkboxes"
+      @toggleCheckbox="toggleCheckbox(item)"
+      :key="item.id"
+      :checkbox="item"
     />
   </div>
 </template>

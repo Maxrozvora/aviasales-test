@@ -13,14 +13,20 @@
         </div>
         <div class="right-block">
           <ButtonGroup @sortBy="sortBy" :sort="sort" />
-          <Ticket
-            v-for="(ticket, id) in getTickets"
-            :key="id"
-            :ticket="ticket"
-          />
-          <button class="btn btn_primary btn_block" @click="loadMore">
-            Показать еще 5 билетов!
-          </button>
+          <div v-if="getTickets.length">
+            <Ticket
+              v-for="(ticket, id) in getTickets"
+              :key="id"
+              :ticket="ticket"
+            />
+            <button class="btn btn_primary btn_block" @click="loadMore">
+              Показать еще 5 билетов!
+            </button>
+          </div>
+          <div v-if="!getTickets.length && !loading" class="info-block">
+            Билеты не найдены!
+          </div>
+          <div v-if="loading" class="info-block">Идет загрузка...</div>
         </div>
       </div>
     </div>
@@ -71,7 +77,8 @@ export default {
       ],
       amountTickets: 5,
       filterKeys: [0, 1, 2, 3],
-      sort: 1,
+      sort: sortTicketsBy.byPrice,
+      loading: true,
     };
   },
   computed: {
@@ -130,6 +137,8 @@ export default {
       this.tickets = tickets;
     } catch (e) {
       throw new Error(`Error occured ${e}`);
+    } finally {
+      this.loading = false;
     }
   },
 };
